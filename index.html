@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XpertTools </title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body onload="checkLogin()">
+
+ <nav>
+  <div class="nav-left">
+    <a href="#homeContent" onclick="showHome()">Home</a>
+  </div>
+  <div class="nav-right">
+    <a href="#contact" onclick="hideHome()">Contact</a>
+    <a href="#" onclick="logout()">Logout</a>
+    <button id="theme-toggle">🌙</button>
+  </div>
+</nav>
+</nav>
+<!-- Place a container somewhere below nav to show message -->
+<div id="message-box" style="padding: 15px; margin: 20px auto; max-width: 600px; text-align: center; color: #3788d4; font-weight: bold;"></div>
+</header>
+ <!-- Home Content -->
+  <section id="homeContent" style="display: none;">
+    <h2>All Softwares & Apps</h2>
+    <input type="text" id="searchInput" placeholder="Search software..." onkeyup="filterSoftware()" class="search-bar">
+    <h2 style="margin-top: 50px; text-align:center;"> Pc Softwares</h2>
+    <div class="software-grid">
+      <!-- Sample Cards -->
+      <div class="software-card">
+        <img src="vs code.png" alt="VS Code">
+        <h2>Vs Code</h2>
+        <h4>Pc Users</h4>
+<a href="https://gofile.io/d/vmgXFY" target="_blank">Download</a>
+      </div>
+ <div class="software-card">
+        <img src="chrome.png" alt="Google Chrome">
+        <h3>Chrome</h3>
+        <h4>Pc Users</h4>
+         <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+      </div>
+
+      <div class="software-card">
+        <img src="tera.png" alt="TeraCopy">
+        <h3>TeraCopy</h3>
+        <h4>Pc Users</h4>
+        <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+      </div>
+
+      <div class="software-card">
+        <img src="lightshot.png" alt="LightShot">
+        <h3>LightShot</h3>
+        <h4>Pc Users</h4>
+        <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+      </div>
+
+<!-- Payment Confirmation Modal -->
+<div id="paymentPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:999; justify-content:center; align-items:center;">
+  <div style="background:white; padding:20px; border-radius:10px; max-width:420px; text-align:center; position:relative;">
+
+    <h2 style="margin-bottom: 10px;">Paid Download</h2>
+
+    <!-- QR for Desktop -->
+    <div id="qrSection" style="display:none;">
+      <p>Scan this QR code to send <strong>Rs. 150</strong> to JazzCash:</p>
+      <img src="Qr.jpg.jpeg" alt="JazzCash QR" style="width: 230px; height: auto; margin: 15px auto;" />
+      <p><strong>Subhan Mujahid - 0328-6864531</strong></p>
+    </div>
+
+    <!-- Mobile Button -->
+    <div id="mobilePay" style="display:none;">
+      <p>Mobile User? Send <strong>Rs. 150</strong> via JazzCash to:</p>
+      <p style="font-size:18px; font-weight:bold;">0328-6864531</p>
+      <a href="https://www.jazzcash.com.pk" target="_blank">
+        <button style="padding:10px 20px; background-color:#ff8800; color:white; border:none; border-radius:5px; margin-top:10px;">
+          Open JazzCash App
+        </button>
+      </a>
+    </div>
+
+    <p style="margin-top:10px; font-size: 14px;">After payment, click OK to download.</p>
+
+    <div style="margin-top:20px;">
+      <button onclick="proceedToDownload()" style="padding:10px 20px; margin-right:10px; background-color:#28a745; color:white; border:none; border-radius:5px;">OK</button>
+      <button onclick="closePopup()" style="padding:10px 20px; background-color:#dc3545; color:white; border:none; border-radius:5px;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Show modal function (call this when user clicks "Download" or "Pay")
+  function showPaymentPopup() {
+    document.getElementById("paymentPopup").style.display = "flex";
+
+    // Detect mobile or desktop
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      document.getElementById("mobilePay").style.display = "block";
+    } else {
+      document.getElementById("qrSection").style.display = "block";
+    }
+  }
+
+  // Proceed to download or next step
+  function proceedToDownload() {
+    closePopup();
+    // Yahan aap download ka function ya link laga saktay hain
+    window.location.href = "your-download-link.zip";
+  }
+
+  // Close modal
+  function closePopup() {
+    document.getElementById("paymentPopup").style.display = "none";
+  }
+</script>
+<div class="software-card">
+        <img src="Photoshop.png" alt="Photoshop Cc">
+        <h3>Photoshop Cc</h3>
+        <h4>Pc Users</h4>
+   <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+      </div>
+       <div class="software-card">
+        <img src="wondershare-filmora-v10.png" alt="Filmora Editing Pack">
+        <h3>wondershare-filmora</h3>
+        <h4>Pc Users</h4>
+        <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+      </div>
+       
+  </section>
+
+<!-- Android Apps Section -->
+<h2 style="margin-top: 50px; text-align:center;">Android Apps</h2>
+<div class="software-grid">
+  <!-- TikTok -->
+  <div class="software-card">
+    <img src="tik tok.jpg" alt="TikTok">
+    <h3>TikTok</h3>
+    <h4>APK</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+
+  <!-- WhatsApp -->
+  <div class="software-card">
+    <img src="whatsapp-icon-free-png.webp" alt="WhatsApp">
+    <h3>WhatsApp</h3>
+    <h4>APK</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+
+  <!-- Instagram -->
+  <div class="software-card">
+    <img src="round-blue-facebook-logo-with-white-thick-border-and-long-shadow-on-a-transparent-background-free-png.webp" alt="Instagram">
+    <h3>Facebook</h3>
+    <h4>APK</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+
+  <!-- Remini Pro -->
+  <div class="software-card">
+    <img src="Remini.png" alt="Remini Pro">
+    <h3>Remini Pro</h3>
+    <h4>APK</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+
+  <!-- Picsart Pro -->
+  <div class="software-card">
+    <img src="picsart.png" alt="Picsart Pro">
+    <h3>Picsart Pro</h3>
+    <h4>APK</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+
+  <!-- PhotoLab Pro -->
+  <div class="software-card">
+    <img src="PhotoLab.png" alt="PhotoLab Pro">
+    <h3>PhotoLab Pro</h3>
+    <h4>APK</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+
+  <!-- LMC 8.4 Camera -->
+  <div class="software-card">
+    <img src="Lmc.png" alt="LMC 8.4 Camera">
+    <h3>LMC 8.4 Camera</h3>
+    <h4>APK</h4>
+    <a href="javascript:void(0);" onclick="confirmPayment('https://ouo.io/A41zm0')">Download</a>
+  </div>
+
+  <!-- LMC XML Files -->
+  <div class="software-card">
+    <img src="lm.png" alt="LMC XML Files">
+    <h3>LMC XML Files</h3>
+    <h4>APK</h4>
+    <a href="javascript:void(0);" onclick="confirmPayment('https://ouo.io/A41zm0')">Download</a>
+  </div>
+
+  <!-- CapCut Pro -->
+  <div class="software-card">
+    <img src="capcut pro.jpg" alt="CapCut Pro">
+    <h3>CapCut Pro</h3>
+    <h4>APK</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+</div>
+
+<!-- Games Section -->
+<h2 style="margin-top: 50px; text-align:center;"> Pc Games</h2>
+<div class="software-grid">
+  <!-- Sample Game Card -->
+  <div class="software-card">
+    <img src="Gta-vice-City.png" alt="Gta Vice City">
+    <h3>Gta Vice City</h3>
+    <h4>PC Users</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+  <div class="software-card">
+    <img src="AL.png" alt="Gta Vice City">
+    <h3>Bus Driving Simulater</h3>
+    <h4>PC Users</h4>
+    <a href="https://ouo.io/A41zm0" target="_blank">Download</a>
+  </div>
+  <!-- Add more game cards here -->
+</div>
+
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div style="background-color: rgb(255, 255, 255); color: rgb(8, 2, 2);">
+  Email: subhanmujahid228@gmail.com
+</div>
+    <h3>Thanks For Contacting Me!!</h3>
+  </section>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
+<head>
+ 
+

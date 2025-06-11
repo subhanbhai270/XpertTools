@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XpertTools.com - Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('web (2).jpg'); /* Image ka sahi path yahaan den */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background-color: #4ba1c4;
+      color: #fff;
+      width: 380px;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(18, 86, 163, 0.3);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo span {
+      font-size: 26px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #333;
+      border-radius: 25px;
+      background-color: #ffffff;
+      color: #000000;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #256da8;
+    }
+
+    .stay-signed {
+      display: flex;
+      align-items: center;
+      margin: 10px 0 20px 0;
+    }
+
+    .stay-signed input {
+      margin-right: 10px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: #1c75b1;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: rgb(68, 163, 175);
+    }
+
+    .forgot {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #ccc;
+      cursor: pointer;
+    }
+
+    .forgot:hover {
+      color: #fff;
+    }
+
+    /* Toast Message */
+    #toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00f7ff;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="logo">
+      <span>XpertTools</span>
+    </div>
+
+    <!-- SIGN IN FORM -->
+    <div id="signinForm" class="form-group">
+      <input type="text" placeholder="Username" id="signin-username">
+      <input type="password" placeholder="Password" id="signin-password">
+      <div class="stay-signed">
+        <input type="checkbox" id="stay">
+        <label for="stay">Stay signed in</label>
+      </div>
+      <button class="login-btn" onclick="login()">SIGN IN</button>
+    </div>
+
+    <div class="forgot">Forgot Password?</div>
+  </div>
+
+  <!-- Toast Message -->
+  <div id="toast">Welcome back!</div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("signin-username").value.trim();
+      const password = document.getElementById("signin-password").value.trim();
+
+      if (!username || !password) {
+        alert("Please enter username and password.");
+        return;
+      }
+
+      localStorage.setItem("loggedIn", "true");
+
+      // Show toast message
+      const toast = document.getElementById("toast");
+      toast.innerText = `Welcome, ${username}!`;
+      toast.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000); // 2 seconds delay
+    }
+
+    // Enter key to trigger login
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        login();
+      }
+    });
+  </script>
+</body>
+</html>
